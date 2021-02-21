@@ -8,7 +8,7 @@
 ----
 </br>
 
-![alt text](https://github.com/Ezeqielle/Vulnerabilite/blob/main/imgchall1/php-assert.png "PHP - assert()")
+![alt text](imgchall1/php-assert.png "PHP - assert()")
 </br>
 
 En se déplaçant sur le site on peut remarquer que les pages sont introduites par
@@ -53,7 +53,7 @@ donc on a notre flague : __x4Ss[...]A1Lx__
 ----
 </br>
 
-![alt text](https://github.com/Ezeqielle/Vulnerabilite/blob/main/imgchall2/sql-injection_auth.png "SQL injection - Authentification")
+![alt text](imgchall2/sql-injection_auth.png "SQL injection - Authentification")
 </br>
 
 Le but de ce challenge comme son nom l'indique est d'exploiter une faille __SQL__ pour pouvoir s'autentifier en temps qu'admin sur le site.
@@ -61,7 +61,7 @@ Le but de ce challenge comme son nom l'indique est d'exploiter une faille __SQL_
 Dans un premier temps nous nous retrouvons sur cette page
 </br>
 
-![alt text](https://github.com/Ezeqielle/Vulnerabilite/blob/main/imgchall2/sql-injection_auth_2.png "SQL injection - Authentification")
+![alt text](imgchall2/sql-injection_auth_2.png "SQL injection - Authentification")
 </br>
 
 donc le but va être d'executer une requête __SQL__ dans un des champs afin de recupérer les logs admin.
@@ -72,7 +72,7 @@ Nous allons dans d'abord essayer de récupérer les logs de l'utilisateur n°1 e
 ce qui nous permet de nous log sur l'utilisateur 1
 </br>
 
-![alt text](https://github.com/Ezeqielle/Vulnerabilite/blob/main/imgchall2/sql-injection_auth_3.png "SQL injection - Authentification")
+![alt text](imgchall2/sql-injection_auth_3.png "SQL injection - Authentification")
 </br>
 
 A partir de ce moment nous pouvons supposé que l'administrateur a une entrée nomée __admin__ en base de donnée donc nous executon la requête suivante afin de nous retourner les logs d'un potentiel utilisateur __ADMIN__
@@ -81,7 +81,7 @@ A partir de ce moment nous pouvons supposé que l'administrateur a une entrée n
 Cette requête s'avère être la bonne car nous avons pour retour à ce moment
 </br>
 
-![alt text](https://github.com/Ezeqielle/Vulnerabilite/blob/main/imgchall2/sql-injection_auth_4.png "SQL injection - Authentification")
+![alt text](imgchall2/sql-injection_auth_4.png "SQL injection - Authentification")
 </br>
 
 Le mot de passe __admin__ est non lisible mais ce n'est rien il ne nous reste qu'a inspecter l'élément et de changer le __type=__ du champ password ce qui nous revèle le mot de passe de l'admin.
