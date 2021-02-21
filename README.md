@@ -56,7 +56,7 @@ On a donc bien notre flag : __x4Ss[...]A1Lx__
 ![alt text](imgchall2/sql-injection_auth.png "SQL injection - Authentification")
 </br>
 
-Le but de ce challenge comme son nom l'indique est d'exploiter une faille __SQL__ pour pouvoir s'autentifier en tant qu'admin sur le site.
+Le but de ce challenge comme son nom l'indique est d'exploiter une faille __SQL__ pour pouvoir s'authentifier en tant qu'admin sur le site.
 
 Dans un premier temps nous nous retrouvons sur cette page
 </br>
