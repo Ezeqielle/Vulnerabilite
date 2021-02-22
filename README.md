@@ -76,7 +76,7 @@ ce qui nous permet de nous logger sur l'utilisateur 1
 </br>
 
 A partir de ce moment nous pouvons supposer que l'administrateur a une entrée nommée __admin__ en base de données. Nous exécutons la requête suivante afin d'obtenir les logs d'un potentiel utilisateur __ADMIN__
-> ' OR 1=1 AND `username`='admin' /*
+> ' OR 1=1 AND \`username`='admin' /*
 
 Cette requête s'avère être la bonne car nous avons pour retour à ce moment
 </br>
