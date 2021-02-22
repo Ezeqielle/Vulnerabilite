@@ -3,7 +3,7 @@
 ##### tous les flags trouvés dans ces challenges seront tronqués
 </br>
 
-![alt text](esgi_logo.png "PHP - assert()")
+![alt text](esgi_logo.png "ESGI")
 </br>
 </br>
 </br>
