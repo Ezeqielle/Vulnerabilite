@@ -2,6 +2,10 @@
 ##### Write UP - Root Me
 ##### tous les flags trouvés dans ces challenges seront tronqués
 </br>
+
+![alt text](esgi_logo.png "PHP - assert()")
+</br>
+</br>
 </br>
 
 ### Chall 1 : [PHP - assert()](https://www.root-me.org/fr/Challenges/Web-Serveur/PHP-assert)
